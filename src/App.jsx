@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from "react";
 
-let globalID = 0;
-
 function App() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
 
   function createTodo(event) {
     event.preventDefault();
-    setTodos((oldTodo) => {
-      setTask("");
-      return [...oldTodo, { todo: task, id: globalID++ }];
-    });
+    if (!task.trim()) return; // To prevent adding empty todos
+
+    const newTodo = { todo: task, id: Date.now() };
+
+    setTodos((oldTodos) => [...oldTodos, newTodo]);
+    setTask("");
   }
-  function deleteItem(itemID) {
+  const deleteItem = (itemID) => {
     setTodos((oldTodos) => oldTodos.filter((item) => item.id !== itemID));
-  }
+  };
   return (
     <div>
       <h1>Simple To Do App</h1>
       <form onSubmit={createTodo}>
         <input
+          id="taskInput"
           type="text"
           value={task}
           onChange={(e) => {
             setTask(e.target.value);
           }}
+          placeholder="Enter the task"
         />
       </form>
       <button type="submit" onClick={createTodo}>
         Add Todo
       </button>
       <ul>
-        {todos.map((item, index) => {
-          return (
-            <div key={item.id}>
-              <li>{item.todo}</li>
-              <button onClick={() => deleteItem(item.id)}>Delete</button>
-            </div>
-          );
-        })}
+        {todos.map((item) => (
+          <li key={item.id}>
+            {item.todo}
+            <button onClick={() => deleteItem(item.id)}>Delete</button>
+          </li>
+        ))}
       </ul>
     </div>
   );
