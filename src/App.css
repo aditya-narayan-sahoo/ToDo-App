@@ -1,42 +1,82 @@
+/* Container Styles */
 #root {
-  max-width: 1280px;
+  max-width: 600px; /* Adjusted for a more compact view */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Header Styles */
+h1 {
+  color: #333; /* Darker text for better readability */
+  margin-bottom: 1.5rem; /* Spacing below the header */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centering the form elements */
+  margin-bottom: 1.5rem; /* Spacing below the form */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input[type="text"] {
+  width: 100%; /* Full width input */
+  padding: 0.75rem; /* Padding for better touch targets */
+  margin-bottom: 1rem; /* Space between input and button */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1rem; /* Font size for readability */
+  transition: border-color 0.3s; /* Smooth transition for focus */
 }
 
-.card {
-  padding: 2em;
+input[type="text"]:focus {
+  border-color: #61dafb; /* Highlight border on focus */
+  outline: none; /* Remove default outline */
 }
 
-.read-the-docs {
-  color: #888;
+/* Button Styles */
+button {
+  padding: 0.75rem 1.5rem; /* Padding for button */
+  background-color: #61dafb; /* Primary button color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size for readability */
+  transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+button:hover {
+  background-color: #21a1f1; /* Darker shade on hover */
+}
+
+/* List Styles */
+ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+}
+
+li {
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between text and button */
+  align-items: center; /* Center items vertically */
+  padding: 0.5rem 1rem; /* Padding for list items */
+  border-bottom: 1px solid #ddd; /* Divider between items */
+}
+
+li:last-child {
+  border-bottom: none; /* Remove border from last item */
+}
+
+/* Delete Button Styles */
+button {
+  background-color: #ff4d4d; /* Red color for delete button */
+}
+
+button:hover {
+  background-color: #ff1a1a; /* Darker shade on hover */
 }
